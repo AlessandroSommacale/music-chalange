@@ -11,9 +11,7 @@ export default function Home() {
         <meta name="description" content="Discover the top 100 most popular albums on iTunes" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <main>
-        <AlbumGrid />
-      </main>
+      <AlbumGrid />
     </>
   );
 }
