@@ -86,6 +86,7 @@ export const MetaInfo = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 8px;
   margin-top: auto;
   padding-top: 12px;
   border-top: 1px solid #f0f0f0;
@@ -110,6 +111,9 @@ export const Category = styled.span`
   color: #888;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 
   @media (prefers-color-scheme: dark) {
     color: #999;
