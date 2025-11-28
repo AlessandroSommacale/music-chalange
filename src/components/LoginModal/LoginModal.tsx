@@ -1,7 +1,7 @@
 import Close from '../../../public/close.svg';
 import { LoadingContainer, Spinner } from '../AlbumGrid/AlbumGrid.styles';
 import { ButtonIcon, CenterText } from './LoginModal.styles';
-import { useLazyLoginUserQuery, useLazyRegisterUserQuery } from '@/store/api/identityApi';
+import { identityApi, useLoginUserMutation, useRegisterUserMutation } from '@/store/api/identityApi';
 import { setUser } from '@/store/slices/user.slice';
 import { Button, ErrorText, Input, InputContainer, InputLabel, LinkButton, Modal, Overlay, SuccessText } from '@/styles/baseComponents.styles';
 import { FocusTrap } from 'focus-trap-react';
@@ -14,14 +14,15 @@ interface LoginModalProps {
 }
 
 const LoginModal = ({ mode, closeCallback }: LoginModalProps) => {
-  const [registerUser, { data: registerData, isLoading: isRegisterLoading, error: registerError }] = useLazyRegisterUserQuery();
-  const [loginUser, { isLoading: isLoginLoading, error: loginError }] = useLazyLoginUserQuery();
+  const [registerUser, { data: registerData, isLoading: isRegisterLoading, error: registerError }] = useRegisterUserMutation();
+  const [loginUser, { isLoading: isLoginLoading, error: loginError }] = useLoginUserMutation();
   const [modalMode, setModalMode] = useState(mode);
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const dispatch = useDispatch();
 
   const changeMode = () => {
+    dispatch(identityApi.util.resetApiState());
     setModalMode(modalMode === 'login' ? 'signup' : 'login');
     setPassword('');
     setEmail('');

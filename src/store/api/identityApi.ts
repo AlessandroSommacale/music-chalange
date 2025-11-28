@@ -21,7 +21,7 @@ export const identityApi = createApi({
     baseUrl: 'https://identitytoolkit.googleapis.com',
   }),
   endpoints: (builder) => ({
-    loginUser: builder.query<UserState, loginUserArg>({
+    loginUser: builder.mutation<UserState, loginUserArg>({
       query: (queryArg) => ({
         url: `/v1/accounts:signInWithPassword`,
         method: 'POST',
@@ -29,7 +29,7 @@ export const identityApi = createApi({
         body: queryArg,
       }),
     }),
-    registerUser: builder.query<UserState, loginUserArg>({
+    registerUser: builder.mutation<UserState, loginUserArg>({
       query: (queryArg) => ({
         url: `/v1/accounts:signUp`,
         method: 'POST',
@@ -40,4 +40,4 @@ export const identityApi = createApi({
   }),
 });
 
-export const { useLazyLoginUserQuery, useLazyRegisterUserQuery } = identityApi;
+export const { useLoginUserMutation, useRegisterUserMutation } = identityApi;
