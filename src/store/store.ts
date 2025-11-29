@@ -12,14 +12,17 @@ const rootReducer = combineReducers({
   [userStore.name]: userStore.reducer,
 });
 
-export const generateStore = () =>
+export type RootState = ReturnType<typeof rootReducer>;
+export type AppStore = ReturnType<typeof generateStore>;
+export type AppDispatch = AppStore['dispatch'];
+
+export const generateStore = (preloadedState?: Partial<RootState>) =>
   configureStore({
     reducer: rootReducer,
+    preloadedState,
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat([albumsApi.middleware, firebaseApi.middleware, identityApi.middleware]),
   });
 
-export type AppStore = ReturnType<typeof generateStore>;
-export type RootState = ReturnType<AppStore['getState']>;
-export type AppDispatch = AppStore['dispatch'];
+const makeStore = () => generateStore();
 
-export const wrapper = createWrapper<AppStore>(generateStore, { debug: true });
+export const wrapper = createWrapper<AppStore>(makeStore, { debug: true });
