@@ -14,8 +14,8 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  assetPrefix: isProd ? '/music-challange/' : '',
-  basePath: isProd ? '/music-challange' : '',
+  assetPrefix: isProd ? '/' : '',
+  basePath: isProd ? '' : '',
   output: 'export'
 };
 

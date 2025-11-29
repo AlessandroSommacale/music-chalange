@@ -1,9 +1,14 @@
 import { wrapper } from '@/store/store';
-import '@/styles/globals.css';
+import { GlobalStyle } from '@/styles/globals';
 import type { AppProps } from 'next/app';
 
 const App = ({ Component, pageProps }: AppProps) => {
-  return <Component {...pageProps} />;
+  return (
+    <>
+      <GlobalStyle />
+      <Component {...pageProps} />
+    </>
+  );
 };
 
 export default wrapper.withRedux(App);

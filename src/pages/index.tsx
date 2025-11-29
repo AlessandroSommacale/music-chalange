@@ -2,7 +2,7 @@ import AlbumGrid from '@/components/AlbumGrid/AlbumGrid';
 import HomeHeader from '@/components/HomeHeader/HomeHeader';
 import { albumsApi } from '@/store/api/albumsApi';
 import { wrapper } from '@/store/store';
-import { Container, MainContent } from '@/styles/home.styles';
+import { Container, MainContent } from '@/styles/home';
 import Head from 'next/head';
 
 export default function Home() {

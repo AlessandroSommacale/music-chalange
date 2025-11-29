@@ -3,7 +3,7 @@ import { LoadingContainer, Spinner } from '../AlbumGrid/AlbumGrid.styles';
 import { ButtonIcon, CenterText } from './LoginModal.styles';
 import { identityApi, useLoginUserMutation, useRegisterUserMutation } from '@/store/api/identityApi';
 import { setUser } from '@/store/slices/user.slice';
-import { Button, ErrorText, Input, InputContainer, InputLabel, LinkButton, Modal, Overlay, SuccessText } from '@/styles/baseComponents.styles';
+import { Button, ErrorText, Input, InputContainer, InputLabel, LinkButton, Modal, Overlay, SuccessText } from '@/styles/baseComponents';
 import { FocusTrap } from 'focus-trap-react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';

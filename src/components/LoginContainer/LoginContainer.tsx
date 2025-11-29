@@ -1,7 +1,7 @@
 import LoginModal from '../LoginModal/LoginModal';
 import { resetUser } from '@/store/slices/user.slice';
 import { RootState } from '@/store/store';
-import { Button } from '@/styles/baseComponents.styles';
+import { Button } from '@/styles/baseComponents';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
