@@ -28,6 +28,6 @@ export const getStaticProps = wrapper.getStaticProps((store) => async () => {
   await Promise.all(store.dispatch(albumsApi.util.getRunningQueriesThunk()));
   return {
     props: {},
-    revalidate: 86400,
+    // revalidate: 86400,
   };
 });
